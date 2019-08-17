@@ -1,0 +1,60 @@
+
+
+repositories {
+    mavenCentral()
+    jcenter()
+    mavenLocal()
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    enabled = false
+}
+
+ext {
+    braveVersion = '5.5.0'
+    zipkinReporterVersion = '2.7.10'
+    log4jVersion = '2.11.1'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "io.zipkin.brave:brave-bom:${braveVersion}"
+    }
+}
+
+dependencies {
+
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    compile('org.springframework.kafka:spring-kafka')
+
+    compile 'org.apache.httpcomponents:httpclient:4.5.6'
+
+    compile 'org.projectlombok:lombok:1.16.14'
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.9.8'
+
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.0'
+//
+//	compile 'com.fasterxml.jackson.datatype:jackson-datatype-guava:2.1.1'
+//
+//	compile 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.1.1'
+
+    compile "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+
+    compile "org.apache.logging.log4j:log4j-slf4j-impl:${log4jVersion}"
+
+    compile "org.apache.logging.log4j:log4j-jcl:${log4jVersion}"
+
+    compile "org.apache.logging.log4j:log4j-jul:${log4jVersion}"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
