@@ -2,6 +2,11 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 
+.DS_Store
+**/.DS_Store
+**/**/.DS_Store
+**/**/**/.DS_Store
+
 ### STS ###
 .apt_generated
 .classpath
@@ -18,9 +23,18 @@
 *.ipr
 /out/
 
+/jpa/build/
+/kafka/build/
+/configuration/build/
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
+/kafka/build/classes/java/main/com/common/kafka/consumer/ConsumerApp.class
+/kafka/build/classes/java/main/com/common/kafka/consumer/ConsumerCreator.class
+/kafka/build/classes/java/main/com/common/kafka/IKafkaConstants.class
+/jpa/build/libs/jpa.jar
+/jpa/build/classes/java/main/com/common/jpa/JpaApplication.class
